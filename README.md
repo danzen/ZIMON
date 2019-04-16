@@ -1,3 +1,4 @@
+<pre>
 ZIMON
 Static Class to stringify an object and parse resulting string back to the object
 Created by Dan Zen for ZIM at https://zimjs.com but usable in other languages
@@ -80,4 +81,5 @@ stringify(obj, key) - supply an object to convert to a ZIMON string
 	stringify returns a ZIMON string in JSON format
 	eg.'{"obj":{"zimon":"Rectangle","args":[30,30,"#e472c4"]},"props":[0.3,212,184]},"key":{"Tile":{"props":["alpha","x","y"]}},"zimon":1,"info":"https://zimjs.com/ZIMON"}';
 parse(string) - pass in the ZIMON string to turn back into an object (or objects within objects)
+</pre>
 
