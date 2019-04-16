@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>ZIMON EXAMPLE</title>
+        <script src="ZIMON.js"></script>
+        <script>
+            // SIMPLE EXAMPLE
+            const Person = class {
+                constructor(name, age, height) {
+                    this.name = name;
+                    this.age = age;
+                    this.height = height;
+                    this.type = "Person";
+                    this.arguments = Array.prototype.slice.call(arguments);;
+                }
+                speak() {
+                    console.log(`My name is ${this.name}, I am ${this.age} years old and ${this.height} feet tall.`);
+                }
+            }
+            const user = new Person("Dan Zen", 29, 6);
+            const data = ZIMON.stringify(user);
+
+            // this data can be saved in localStorage or sent to a database as a string
+            // the data can then be reconstructed as an object
+
+            const copy = ZIMON.parse(data);
+            copy.speak();
+
+
+
+            // FULL EXAMPLE
+            // might have some namespace where the classes are stored
+            // and properties to record
+            // use a ZIMON key object to tell ZIMON what these are
+
+            const library = {
+                Person:class {
+                    constructor(name, age, height) {
+                        this.name = name;
+                        this.age = age;
+                        this.height = height;
+                        this.type = "Person";
+                        this.arguments = Array.prototype.slice.call(arguments);;
+                    }
+                    speak() {
+                        console.log(`My name is ${this.name}, I am ${this.age} years old and ${this.height} feet tall.`);
+                    }
+                }
+            }
+            const hero = new library.Person("Datoid", 15, 5.5);
+            hero.cape = true,
+            hero.side = "good"
+            hero.powers = ["cyber", "astral", "instant"];
+
+            const villain = new library.Person("Virus", 2, .0001);
+            villain.cape = false,
+            villain.side = "bad"
+            villain.powers = ["erase", "multiply"];
+
+            const battle = [hero, villain];
+            var key = {Person:{scope:"library", props:["cape", "side", "powers"]}};
+            var battleData = ZIMON.stringify(battle, key);
+
+            console.log(battleData);
+
+            var remakeData = ZIMON.parse(battleData);
+            remakeData[0].speak();
+            console.log(`my ${remakeData[0].powers[0]} power will beat your weak ${remakeData[1].powers[0]} power`);
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
