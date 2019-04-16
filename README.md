@@ -3,7 +3,7 @@ ZIMON
 Static Class to stringify an object and parse resulting string back to the object
 Created by Dan Zen for ZIM at https://zimjs.com but usable in other languages
 in a similar way that JSON was made for JS but usable in other languages
-ZIMON differs from JSON is that it can work with any type of object
+ZIMON differs from JSON in that it can work with any type of object
 
 DESCRIPTION
 ZIMON stands for ZIM Object Notation
